@@ -53,8 +53,15 @@ Dashboard - Administrasi
 							<div class="form-group">
 								<label class="col-lg-2 control-label">Harga Produk <span class="text-danger"><b>*</b></span></label>
 								<div class="col-lg-10">
-									<input class="form-control" type="text" placeholder="Harga Produk" name="harga"
+									<input class="form-control" type="number" placeholder="Harga Produk" name="harga"
 									value="{{ ($type=='create') ? '' : $produk->harga }}" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">Stok Produk <span class="text-danger"><b>*</b></span></label>
+								<div class="col-lg-10">
+									<input class="form-control" type="number" placeholder="Harga Produk" name="stok"
+										   value="{{ ($type=='create') ? '' : $produk->stok }}" required>
 								</div>
 							</div>
 							<div class="form-group">

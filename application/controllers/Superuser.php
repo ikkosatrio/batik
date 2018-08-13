@@ -645,6 +645,7 @@ class Superuser extends CI_Controller {
 
 			$judul     	= $this->input->post('judul');
 			$harga     	= $this->input->post('harga');
+            $stok     	= $this->input->post('stok');
 			$deskripsi  = $this->input->post('deskripsi');
 			$cover 		= time().$_FILES['cover']['name'];
 			$cover 		= str_replace(' ', '_', $cover);
@@ -660,6 +661,7 @@ class Superuser extends CI_Controller {
 			$data = array(
 				'judul'       => $judul,
 				'harga'       => $harga,
+                'stok'       => $stok,
 				'deskripsi'   => $deskripsi,
 				'cover'       => $cover,
 			);
@@ -680,6 +682,7 @@ class Superuser extends CI_Controller {
 
 			$judul     	= $this->input->post('judul');
 			$harga     	= $this->input->post('harga');
+            $stok     	= $this->input->post('stok');
 			$deskripsi  = $this->input->post('deskripsi');
 			$cover 		= time().$_FILES['cover']['name'];
 			$cover 		= str_replace(' ', '_', $cover);
@@ -694,6 +697,7 @@ class Superuser extends CI_Controller {
 					$data = array(
 						'judul'       => $judul,
 						'harga'       => $harga,
+                        'stok'       => $stok,
 						'deskripsi'   => $deskripsi,
 						'cover'       => $cover,
 					);
@@ -701,6 +705,7 @@ class Superuser extends CI_Controller {
 					$data = array(
 						'judul'       => $judul,
 						'harga'       => $harga,
+                        'stok'       => $stok,
 						'deskripsi'   => $deskripsi,
 					);
 				}

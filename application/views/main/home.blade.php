@@ -5,24 +5,24 @@
     <div class="rev_slider banner row m0" id="rev_slider" data-version="5.0">
         <ul>
             @foreach ($slider as $result)
-            <li data-transition="slidehorizontal"  data-delay="10000">
-                <img style="max-width: 1920px;max-height: 828px;min-height: 828px" src="{{img_slider($result->cover)}}"  alt="" data-bgposition="center bottom" data-bgfit="contain" data-bgrepeat="no-repeat" data-bgparallax="1" >
-                <div class="tp-caption sfr tp-resizeme carpenters-h1"
-                    data-x="0" data-hoffset="690"
-                    data-y="355" data-voffset="160"
-                    data-whitespace="nowrap"
-                    data-start="900">
-                    {{$result->judul}}
+                <li data-transition="slidehorizontal"  data-delay="10000">
+                    <img style="max-width: 1920px;max-height: 828px;min-height: 828px" src="{{img_slider($result->cover)}}"  alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
+                    <div class="tp-caption sfr tp-resizeme carpenters-h1"
+                         data-x="0" data-hoffset="690"
+                         data-y="355" data-voffset="160"
+                         data-whitespace="nowrap"
+                         data-start="900">
+                        {{$result->judul}}
 
-                </div>
-                <div class="tp-caption sfb tp-resizeme carpenters-p"
-                    data-x="0" data-hoffset="500"
-                    data-y="430" data-voffset="470"
-                    data-whitespace="nowrap"
-                    data-start="1800">
-                    {!!$result->deskripsi!!}
-                </div>
-            </li>
+                    </div>
+                    <div class="tp-caption sfb tp-resizeme carpenters-p"
+                         data-x="0" data-hoffset="500"
+                         data-y="430" data-voffset="470"
+                         data-whitespace="nowrap"
+                         data-start="1800">
+                        {!!$result->deskripsi!!}
+                    </div>
+                </li>
             @endforeach
 
             {{-- <li data-transition="parallaxvertical">

@@ -293,7 +293,7 @@
 
 <!--footer-->
 <footer class="row">
-    <div class="row m0 footer-top">
+    <div class="row m0 footer-top" style="background: black">
         <div class="container">
             <div class="row footer-sidebar">
                 <div class="widget about-us-widget col-sm-6 col-lg-3">
@@ -313,10 +313,9 @@
                     <div class="widget-contact-list row m0">
                         <ul>
                             <li><a href="{{base_url()}}"><i class="fa fa-angle-right"></i>Home</a></li>
-                            <li><a href="{{base_url('main/profil')}}"><i class="fa fa-angle-right"></i>Profil Desa</a></li>
+                            <li><a href="{{base_url('main/profil')}}"><i class="fa fa-angle-right"></i>Profil</a></li>
                             <li><a href="{{base_url('main/artikel')}}"><i class="fa fa-angle-right"></i>Artikel</a></li>
                             <li><a href="{{base_url('main/produk')}}"><i class="fa fa-angle-right"></i>Produk</a></li>
-                            <li><a href="{{base_url('main/potensi')}}"><i class="fa fa-angle-right"></i>Potensi</a></li>
                             <li><a href="{{base_url('main/gallery')}}"><i class="fa fa-angle-right"></i>Gallery</a></li>
                             <li><a href="{{base_url('main/contact')}}"><i class="fa fa-angle-right"></i>Kontak</a></li>
                         </ul>

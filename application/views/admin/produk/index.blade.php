@@ -48,6 +48,7 @@ Dashboard - Administrasi
 		                        	<th>No</th>
 		                        	<th>Gambar</th>
 		                            <th>Produk</th>
+									<th>Stok</th>
 		                            <th>Di Lihat</th>
 		                            <th class="text-center">Aksi</th>
 		                        </tr>
@@ -68,10 +69,16 @@ Dashboard - Administrasi
 			                        	<span class="text-size-mini">
 			                        	Tanggal Publish : {{tgl_indo($result->created_at)}}
 			                        	</span><br>
+										<span class="text-size-mini">
+			                        	Harga : {{$result->harga}}
+			                        	</span><br>
 			                        	<span class="text-size-small text-muted">
 			                        		{{read_more(strip_tags($result->deskripsi),30)}}
 			                        	</span>
 			                        </td>
+									<td>
+										{{$result->stok}}
+									</td>
 			                        <td align="center">
 			                        	<span class="label label-success"><i class="icon-eye"></i> &nbsp;{{$result->view}} Di Lihat</span>
 			                        </td>
