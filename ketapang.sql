@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 -- Dumping data for table batik.config: ~0 rows (approximately)
 /*!40000 ALTER TABLE `config` DISABLE KEYS */;
 INSERT INTO `config` (`id`, `name`, `email`, `phone`, `address`, `description`, `icon`, `instagram`, `facebook`, `logo`, `meta_deskripsi`, `basic`, `meta_keyword`) VALUES
-	(1, 'Kripsku.com', 'admin@kripsku.com', '083849940637', 'Universitas 17 Agustus 1945 Surabaya', 'Ini Kripsku.com<br>', 'icon1.png', 'kripsku', 'kripsku', 'logo3.png', '																								Ini Kripsku.com\r\n											\r\n											', 5, '																								Ini Kripsku.com\r\n											\r\n											');
+	(1, 'Batik Murni Madiun', 'admin@kripsku.com', '083849940637', 'Universitas 17 Agustus 1945 Surabaya', 'Ini Kripsku.com<br>', 'icon1.png', 'madiun', 'madiun', 'logo3.png', '																																																												Ini Kripsku.com\r\n											\r\n											\r\n											\r\n											\r\n											', 5, '																																																												Ini Kripsku.com\r\n											\r\n											\r\n											\r\n											\r\n											');
 /*!40000 ALTER TABLE `config` ENABLE KEYS */;
 
 -- Dumping structure for table batik.gambar_album
@@ -141,6 +141,21 @@ INSERT INTO `kategori` (`id_kategori`, `nama`, `deskripsi_kat`, `created_at`) VA
 	(1, 'Konstruksi2', '<p>Konstruksi4</p>\r\n', '2017-06-29 16:05:38'),
 	(2, 'halo', 'test', '2017-07-15 23:26:08');
 /*!40000 ALTER TABLE `kategori` ENABLE KEYS */;
+
+-- Dumping structure for table batik.kategori_product
+CREATE TABLE IF NOT EXISTS `kategori_product` (
+  `id_kategori` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) DEFAULT NULL,
+  `deskripsi_kat` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_kategori`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table batik.kategori_product: ~1 rows (approximately)
+/*!40000 ALTER TABLE `kategori_product` DISABLE KEYS */;
+INSERT INTO `kategori_product` (`id_kategori`, `nama`, `deskripsi_kat`, `created_at`) VALUES
+	(2, 'test 1', '<p>asdasd</p>\r\n\r\n<p>&nbsp;</p>\r\n', '2018-08-14 23:42:16');
+/*!40000 ALTER TABLE `kategori_product` ENABLE KEYS */;
 
 -- Dumping structure for table batik.pejabat
 CREATE TABLE IF NOT EXISTS `pejabat` (
@@ -203,13 +218,14 @@ CREATE TABLE IF NOT EXISTS `produk` (
   `harga` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `stok` int(11) DEFAULT NULL,
+  `id_kategori` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_produk`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table batik.produk: ~1 rows (approximately)
 /*!40000 ALTER TABLE `produk` DISABLE KEYS */;
-INSERT INTO `produk` (`id_produk`, `judul`, `deskripsi`, `cover`, `view`, `harga`, `created_at`, `stok`) VALUES
-	(4, 'ini produk2', '<p>isi produk2</p>\r\n', '14996150512_i.jpg', 64, 4000, '2018-08-13 20:06:52', 300);
+INSERT INTO `produk` (`id_produk`, `judul`, `deskripsi`, `cover`, `view`, `harga`, `created_at`, `stok`, `id_kategori`) VALUES
+	(4, 'ini produk2', '<p>isi produk2</p>\r\n', '14996150512_i.jpg', 69, 4000, '2018-08-14 23:48:56', 300, 2);
 /*!40000 ALTER TABLE `produk` ENABLE KEYS */;
 
 -- Dumping structure for table batik.profil
@@ -237,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   PRIMARY KEY (`id_slider`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table batik.slider: ~0 rows (approximately)
+-- Dumping data for table batik.slider: ~2 rows (approximately)
 /*!40000 ALTER TABLE `slider` DISABLE KEYS */;
 INSERT INTO `slider` (`id_slider`, `judul`, `deskripsi`, `cover`, `created_at`) VALUES
 	(5, 'Batik Pecel', '', '1534173171slide_1.jpg', '2018-08-13 22:24:53'),

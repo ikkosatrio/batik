@@ -293,7 +293,14 @@
 										<li class="{{match($menu,'kategori','active')}}"><a href="{{base_url('superuser/kategori')}}">Kategori</a></li>
 									</ul>
 								</li>
-								<li class="{{match($menu,'produk','active')}}"><a href="{{base_url('superuser/produk')}}"><i class=" icon-box"></i> <span>Produk Website</span></a></li>
+								<li class="{{match($menu,'produk','active')}}{{match($menu,'kategoriproduct','active')}}">
+									<a href="#"><i class="icon-box"></i> <span>Product</span></a>
+									<ul>
+										<li class="{{match($menu,'artikel','active')}}"><a href="{{base_url('superuser/produk')}}">Product</a></li>
+										<li class="{{match($menu,'kategori','active')}}"><a href="{{base_url('superuser/kategoriproduct')}}">Kategori</a></li>
+									</ul>
+								</li>
+								{{--<li class="{{match($menu,'produk','active')}}"><a href="{{base_url('superuser/produk')}}"><i class=" icon-box"></i> <span>Produk Website</span></a></li>--}}
 								{{-- <li class="{{match($menu,'potensi','active')}}"><a href="{{base_url('superuser/potensi')}}"><i class=" icon-loop"></i> <span>Potensi Desa</span></a></li> --}}
 								<li class="{{match($menu,'gallery','active')}}"><a href="{{base_url('superuser/gallery')}}"><i class="icon-images3"></i> <span>Gallery Website</span></a></li>
 								<li class="{{match($menu,'pesan','active')}}"><a href="{{base_url('superuser/pesan')}}"><i class=" icon-envelop3"></i> <span>Pesan</span>

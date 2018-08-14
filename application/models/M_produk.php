@@ -12,6 +12,7 @@ class M_produk extends CI_Model {
 
 	function tampil_data($table){
 		$this->db->from($table);
+        $this->db->join('kategori_product','kategori_product.id_kategori=produk.id_kategori');
 		return $query = $this->db->get();
 		// return $this->db->get($table);
 	}
@@ -41,7 +42,8 @@ class M_produk extends CI_Model {
 		$this->db->insert($table,$data);
 	}
 	
-	function detail($where,$table){	
+	function detail($where,$table){
+        $this->db->join('kategori_product','kategori_product.id_kategori=produk.id_kategori');
 		return $this->db->get_where($table,$where);
 	}
 

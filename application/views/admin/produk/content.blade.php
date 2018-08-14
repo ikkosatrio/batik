@@ -50,6 +50,22 @@ Dashboard - Administrasi
 									value="{{ ($type=='create') ? '' : $produk->judul }}" required>
 								</div>
 							</div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Kategori Artikel <span class="text-danger"><b>*</b></span></label>
+                                <div class="col-lg-10">
+                                    <select class="select-search" name="kategori" required>
+                                        <option value="">Pilih Kategori</option>
+                                        @foreach($kategori as $result)
+                                            @if($type=="update")
+                                                <option value="{{$result->id_kategori}}" {{($result->id_kategori==$produk->id_kategori) ? "selected" : ""}}>{{$result->nama}}</option>
+                                            @else
+                                                <option value="{{$result->id_kategori}}">{{$result->nama}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                            </div>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">Harga Produk <span class="text-danger"><b>*</b></span></label>
 								<div class="col-lg-10">

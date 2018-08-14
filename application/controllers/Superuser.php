@@ -635,6 +635,7 @@ class Superuser extends CI_Controller {
 		$data           = $this->data;
 		$data['menu']   = "produk";
 		$data['produk'] = $this->m_produk->tampil_data('produk')->result();
+        $data['kategori'] = $this->m_kategori->tampil_data('kategori_product')->result();
 
 		if ($url=="create") {
 			$data['type']			= "create";
@@ -644,6 +645,7 @@ class Superuser extends CI_Controller {
 		else if ($url == "created" && $this->input->is_ajax_request() == true) {
 
 			$judul     	= $this->input->post('judul');
+            $kategori     	= $this->input->post('kategori');
 			$harga     	= $this->input->post('harga');
             $stok     	= $this->input->post('stok');
 			$deskripsi  = $this->input->post('deskripsi');
@@ -664,6 +666,7 @@ class Superuser extends CI_Controller {
                 'stok'       => $stok,
 				'deskripsi'   => $deskripsi,
 				'cover'       => $cover,
+                'id_kategori' => $kategori,
 			);
 
 			if($this->m_produk->input_data($data,'produk')){
@@ -682,6 +685,7 @@ class Superuser extends CI_Controller {
 
 			$judul     	= $this->input->post('judul');
 			$harga     	= $this->input->post('harga');
+            $kategori     	= $this->input->post('kategori');
             $stok     	= $this->input->post('stok');
 			$deskripsi  = $this->input->post('deskripsi');
 			$cover 		= time().$_FILES['cover']['name'];
@@ -700,6 +704,7 @@ class Superuser extends CI_Controller {
                         'stok'       => $stok,
 						'deskripsi'   => $deskripsi,
 						'cover'       => $cover,
+                        'id_kategori' => $kategori,
 					);
 				}else{
 					$data = array(
@@ -707,6 +712,7 @@ class Superuser extends CI_Controller {
 						'harga'       => $harga,
                         'stok'       => $stok,
 						'deskripsi'   => $deskripsi,
+                        'id_kategori' => $kategori,
 					);
 				}
 
@@ -820,6 +826,71 @@ class Superuser extends CI_Controller {
 		}
 	}
 	// --------------------------------- End Slider
+
+
+    //Kategori Product
+    public function kategoriproduct($url=null,$id=null)
+    {
+        $data             = $this->data;
+        $data['menu']     = "kategori";
+        $data['kategori'] = $this->m_kategori->tampil_data('kategori_product')->result();
+
+        if ($url=="create") {
+            $data['type']			= "create";
+            echo $this->blade->nggambar('admin.kategoriproduct.content',$data);
+            return;
+        }
+        else if ($url == "created" && $this->input->is_ajax_request() == true) {
+
+            $nama     	= $this->input->post('nama');
+            $deskripsi  = $this->input->post('deskripsi');
+
+            $data = array(
+                'nama'       => $nama,
+                'deskripsi_kat'   => $deskripsi,
+            );
+
+            if($this->m_kategori->input_data($data,'kategori_product')){
+                echo goResult(true,"Data Telah Di Tambahkan");
+                return;
+            }
+        }
+        else if ($url=="update" && $id!=null) {
+            $data['type']    = "update";
+            $where           = array('id_kategori' => $id);
+            $data['kategori'] = $this->m_kategori->detail($where,'kategori_product')->row();
+            echo $this->blade->nggambar('admin.kategoriproduct.content',$data);
+        }
+        else if ($url=="updated" && $id!=null && $this->input->is_ajax_request() == true) {
+            $where           = array('id_kategori' => $id);
+
+            $nama     	= $this->input->post('nama');
+            $deskripsi  = $this->input->post('deskripsi');
+
+            $data = array(
+                'nama'       => $nama,
+                'deskripsi_kat'   => $deskripsi,
+            );
+
+            if($this->m_kategori->update_data($where,$data,'kategori_product')){
+                echo goResult(true,"Data Telah Di Tambahkan");
+                return;
+            }
+        }
+        else if ($url=="deleted" && $id != null) {
+            $where           = array('id_kategori' => $id);
+            if ($this->m_kategori->hapus_data($where,'kategori_product')) {
+
+            }
+            redirect('superuser/kategoriproduct/');
+        }
+        else {
+            echo $this->blade->nggambar('admin.kategoriproduct.index',$data);
+            return;
+        }
+    }
+    //end Kategori PRiduct
+
 
 
 	// --------------------------------- Start KAtegori

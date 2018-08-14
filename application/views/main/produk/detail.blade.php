@@ -35,6 +35,10 @@
                     <div class="col-lg-6">
                         <h3>{{$produk->judul}}</h3>
                         <h4>Harga Rp. {{number_format($produk->harga)}}</h4>
+                        <br>
+                        <span>Stok : {{$produk->stok}}</span>
+                        <br>
+                        <span>Kategori : {{$produk->nama}}</span>
                             {!!$produk->deskripsi!!}
                         <span>Dilihat : <b>{{$produk->view}}</b></span>
                     </div>
