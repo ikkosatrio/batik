@@ -76,7 +76,7 @@
 <section class="row sectpad we-do-section">
     <div class="container">
         <div class="row m0 section_header color">
-           <h2>Artikel Terbaru</h2>
+           <h2>Artikel Nyar</h2>
         </div>
         <div class="we-do-slider">
             <div class="we-sliders">
